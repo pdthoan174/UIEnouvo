@@ -5,9 +5,11 @@
       <map>
         <entry key="..\:/Android PJ/UIEnouvo/app/src/main/res/drawable/bg_button.xml" value="0.2574074074074074" />
         <entry key="..\:/Android PJ/UIEnouvo/app/src/main/res/drawable/bg_text.xml" value="0.2574074074074074" />
+        <entry key="..\:/Android PJ/UIEnouvo/app/src/main/res/drawable/ic_arrow_circle_left.xml" value="0.14444444444444443" />
         <entry key="..\:/Android PJ/UIEnouvo/app/src/main/res/font/poppins_thin.xml" value="0.2574074074074074" />
-        <entry key="..\:/Android PJ/UIEnouvo/app/src/main/res/layout/activity_main.xml" value="0.264" />
-        <entry key="..\:/Android PJ/UIEnouvo/app/src/main/res/layout/list_approval_matrix.xml" value="0.27291666666666664" />
+        <entry key="..\:/Android PJ/UIEnouvo/app/src/main/res/layout/activity_add_approval_matrix.xml" value="0.2" />
+        <entry key="..\:/Android PJ/UIEnouvo/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Android PJ/UIEnouvo/app/src/main/res/layout/list_approval_matrix.xml" value="0.264" />
       </map>
     </option>
   </component>
