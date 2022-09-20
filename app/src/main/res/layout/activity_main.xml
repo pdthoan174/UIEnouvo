@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/poppins_semibold"
         android:text="Appropval Matrix"
         android:textColor="@color/white"
@@ -43,7 +43,7 @@
                 android:textColor="@color/white"
                 android:text="Tambah New Matrix"
                 android:textAllCaps="false"
-                android:background="@drawable/bg_button"
+                android:background="@drawable/button_border"
                 android:drawableStart="@drawable/ic_add_circle"
                 android:padding="10dp"
                 android:textSize="12sp"

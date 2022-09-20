@@ -4,14 +4,21 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Android PJ/UIEnouvo/app/src/main/res/drawable/bg_button.xml" value="0.2574074074074074" />
+        <entry key="..\:/Android PJ/UIEnouvo/app/src/main/res/drawable/bg_dialog.xml" value="0.21180555555555555" />
+        <entry key="..\:/Android PJ/UIEnouvo/app/src/main/res/drawable/bg_main.xml" value="0.21180555555555555" />
         <entry key="..\:/Android PJ/UIEnouvo/app/src/main/res/drawable/bg_text.xml" value="0.2574074074074074" />
         <entry key="..\:/Android PJ/UIEnouvo/app/src/main/res/drawable/button_border.xml" value="0.21388888888888888" />
+        <entry key="..\:/Android PJ/UIEnouvo/app/src/main/res/drawable/checkbox.xml" value="0.21180555555555555" />
+        <entry key="..\:/Android PJ/UIEnouvo/app/src/main/res/drawable/checked.xml" value="0.21180555555555555" />
         <entry key="..\:/Android PJ/UIEnouvo/app/src/main/res/drawable/ic_arrow_circle_left.xml" value="0.14444444444444443" />
+        <entry key="..\:/Android PJ/UIEnouvo/app/src/main/res/drawable/ic_search.xml" value="0.21180555555555555" />
         <entry key="..\:/Android PJ/UIEnouvo/app/src/main/res/font/poppins_thin.xml" value="0.2574074074074074" />
         <entry key="..\:/Android PJ/UIEnouvo/app/src/main/res/layout/activity_add_approval_matrix.xml" value="0.2" />
         <entry key="..\:/Android PJ/UIEnouvo/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Android PJ/UIEnouvo/app/src/main/res/layout/bottom_sheet_feature.xml" value="0.2046875" />
         <entry key="..\:/Android PJ/UIEnouvo/app/src/main/res/layout/confirm_add_dialog.xml" value="0.2046875" />
         <entry key="..\:/Android PJ/UIEnouvo/app/src/main/res/layout/list_approval_matrix.xml" value="0.264" />
+        <entry key="..\:/Android PJ/UIEnouvo/app/src/main/res/layout/list_feature.xml" value="0.2046875" />
         <entry key="..\:/Android PJ/UIEnouvo/app/src/main/res/layout/sign_in_failed_dialog.xml" value="0.2046875" />
       </map>
     </option>
