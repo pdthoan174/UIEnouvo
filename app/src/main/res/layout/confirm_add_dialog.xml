@@ -13,7 +13,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="Failed"
+        android:text="Confirm to Add"
         android:gravity="center"
         android:fontFamily="@font/poppins"
         android:textSize="18sp"
@@ -21,36 +21,15 @@
         android:textStyle="bold"
         />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <TextView
         android:id="@+id/detail"
-        android:padding="15dp"
-        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="@+id/title"
         app:layout_constraintEnd_toEndOf="@+id/title"
-        app:layout_constraintTop_toBottomOf="@+id/title">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:text="\u25CF  Range limit can't be overlapping"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:text="\u25CF  The selected feature has alrealy had approval matrix"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:text="\u25CF  No. of approval in matrix list is more than number of approval in your company."
-            />
-
-    </LinearLayout>
-
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        android:text="Please confirm to create new Tranfer Online Approval Matrix"
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -64,12 +43,24 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:text="Back to edit"
+            android:text="Confirm"
             android:textAllCaps="true"
             android:textSize="15sp"
             android:textColor="#D1D2D4"
             android:background="@drawable/button_border"
             android:backgroundTint="#171C8F"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Cancel"
+            textAllCaps="true"
+            android:layout_marginTop="10dp"
+            android:textSize="15sp"
+            android:textColor="#171C8F"
+            android:background="@drawable/button_border"
+
             />
 
     </LinearLayout>
