@@ -74,7 +74,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"
-                    android:layout_marginTop="15dp"
                     android:layout_marginEnd="30dp"
                     android:text="Appropval Matrix Alias"
                     android:textColor="@color/black"
@@ -98,12 +97,22 @@
 
                     android:textColor="#000000"
                     android:textSize="15sp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="30dp"
+                    android:text="Error message"
+                    android:textColor="#D30707"
+                    android:textSize="12sp" />
+
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"
-                    android:layout_marginTop="44dp"
+                    android:layout_marginTop="20dp"
                     android:layout_marginEnd="30dp"
                     android:text="Feature"
                     android:textColor="@color/black"
@@ -114,7 +123,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_marginStart="30dp"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="8dp"
                     android:layout_marginEnd="30dp"
                     android:autoSizeMaxTextSize="20sp"
                     android:background="@drawable/bg_text"
@@ -128,12 +137,30 @@
                     android:textColor="#000000"
                     android:textSize="15sp"
                     />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="30dp"
+                    android:text="Error message"
+                    android:textColor="#D30707"
+                    android:textSize="12sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="#E6AAAAAA" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"
-                    android:layout_marginTop="44dp"
+
                     android:layout_marginEnd="30dp"
                     android:text="Range of Appropval (Minimum)"
                     android:textColor="@color/black"
@@ -144,7 +171,7 @@
                     android:layout_height="48dp"
                     android:orientation="horizontal"
                     android:layout_marginStart="30dp"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="8dp"
                     android:layout_marginEnd="30dp"
                     android:background="@drawable/bg_text"
                     >
@@ -173,7 +200,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"
-                    android:layout_marginTop="44dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="30dp"
+                    android:text="Error message"
+                    android:textColor="#D30707"
+                    android:textSize="12sp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="20dp"
                     android:layout_marginEnd="30dp"
                     android:text="Range of Appropval (Maximum)"
                     android:textColor="@color/black"
@@ -184,7 +220,7 @@
                     android:layout_height="48dp"
                     android:orientation="horizontal"
                     android:layout_marginStart="30dp"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="8dp"
                     android:layout_marginEnd="30dp"
                     android:background="@drawable/bg_text"
                     >
@@ -207,14 +243,22 @@
                         android:maxLines="1"
                         android:inputType="number"
                         android:importantForAutofill="no" />
-
                 </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="30dp"
+                    android:text="Error message"
+                    android:textColor="#D30707"
+                    android:textSize="12sp" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"
-                    android:layout_marginTop="44dp"
+                    android:layout_marginTop="20dp"
                     android:layout_marginEnd="30dp"
                     android:text="Number of Appropval"
                     android:textColor="@color/black"
@@ -224,7 +268,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_marginStart="30dp"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="8dp"
                     android:layout_marginEnd="30dp"
                     android:autoSizeMaxTextSize="20sp"
                     android:background="@drawable/bg_text"
@@ -238,8 +282,42 @@
 
                     android:textColor="#000000"
                     android:textSize="15sp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="30dp"
+                    android:text="Error message"
+                    android:textColor="#D30707"
+                    android:textSize="12sp" />
 
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="64dp"
+                    android:layout_marginEnd="30dp"
+                    android:text="ADD TO :LIST"
+                    android:textSize="15sp"
+                    android:textColor="#D1D2D4"
+                    android:background="@drawable/button_border"
+                    android:backgroundTint="#171C8F"
+                    />
 
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="40dp"
+                    android:layout_marginEnd="30dp"
+                    android:text="RESET"
+                    android:textSize="15sp"
+                    android:textColor="#171C8F"
+                    android:background="@drawable/button_border"
+
+                    />
             </LinearLayout>
 
         </LinearLayout>
