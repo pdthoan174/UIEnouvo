@@ -2,6 +2,7 @@ package com.example.uienouvo
 
 import android.app.AlertDialog
 import android.app.Dialog
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
@@ -32,12 +33,20 @@ class addApprovalMatrix : AppCompatActivity() {
             showConfirmDialog()
         }
 
+        btn_back.setOnClickListener {
+            backToMainActivity()
+        }
+
+    }
+
+    private fun backToMainActivity() {
+        startActivity(Intent(this, MainActivity::class.java))
+        finishAffinity()
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
     }
 
     private fun showConfirmDialog() {
         val view = View.inflate(this@addApprovalMatrix, R.layout.confirm_add_dialog, null)
-
-
 
         val builder = AlertDialog.Builder(this@addApprovalMatrix)
         builder.setView(view)
