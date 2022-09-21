@@ -41,6 +41,7 @@
         android:paddingEnd="15dp"
         android:orientation="vertical">
         <Button
+            android:id="@+id/btn_confirm"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="Confirm"
@@ -52,10 +53,11 @@
             />
 
         <Button
+            android:id="@+id/btn_cancel"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="Cancel"
-            textAllCaps="true"
+            android:textAllCaps="true"
             android:layout_marginTop="10dp"
             android:textSize="15sp"
             android:textColor="#171C8F"
