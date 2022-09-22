@@ -52,6 +52,7 @@ class addApprovalMatrix : AppCompatActivity() {
         }
 
         btn_add.setOnClickListener {
+            validateApproval()
             showConfirmDialog()
         }
 
@@ -59,6 +60,56 @@ class addApprovalMatrix : AppCompatActivity() {
             backToMainActivity()
         }
 
+    }
+
+    private fun validateApproval() {
+        val matrixName = inputMatrixName.text.toString()
+        val featureName = text_select_feature.text.toString()
+        val minimum = inputMinimum.text.toString()
+        val maximum = inputMaximum.text.toString()
+        val numOfApproval = inputNumOfAppropval.text.toString()
+        val inputApprover = text_select_approver.text.toString()
+
+        if (matrixName.isEmpty()){
+            errorMessageName.text = "Enter matrix name"
+        }else{
+            errorMessageName.text = ""
+        }
+        if (featureName.equals("Select a feature") || featureName.equals("")){
+            errorMessageFeature.text = "Select a feature"
+        }else{
+            errorMessageFeature.text = ""
+        }
+        if (minimum.isEmpty()){
+            errorMessageMin.text = "Enter minimum value"
+        }else if (minimum.toInt() >= maximum.toInt()){
+            errorMessageMin.text = "Minimum value must be less than maximum value"
+        }else{
+            errorMessageMin.text = ""
+        }
+        if (maximum.isEmpty()){
+            errorMessageMax.text = "Enter maximum value"
+        }else if (maximum.toInt() <= minimum.toInt()){
+            errorMessageMax.text = "Maximum value must be greater than minimum value"
+        }else{
+            errorMessageMax.text = ""
+        }
+
+        if (numOfApproval.isEmpty()){
+            errorMessageNumApproval.text = "Enter number of approval"
+        }else if (numOfApproval.toInt() <= 0){
+            errorMessageApprover.text = "Number of approval must be greater than 0"
+        }else{
+            errorMessageApprover.text = ""
+        }
+        if (inputApprover == ""){
+            errorMessageApprover.text = "Select approver"
+        }else{
+            errorMessageApprover.text = ""
+        }
+
+
+        Log.i("hihi", matrixName+featureName+minimum+maximum+numOfApproval+inputApprover)
     }
 
     private fun showBottomSheetApprover() {
@@ -143,7 +194,6 @@ class addApprovalMatrix : AppCompatActivity() {
 
     private fun showConfirmDialog() {
         val view = View.inflate(this@addApprovalMatrix, R.layout.confirm_add_dialog, null)
-
         val builder = AlertDialog.Builder(this@addApprovalMatrix)
         builder.setView(view)
         val dialog = builder.create()
