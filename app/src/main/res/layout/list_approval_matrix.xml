@@ -1,119 +1,186 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/bg_text"
     android:orientation="vertical"
-    android:layout_marginBottom="10dp"
     >
 
-    <TableLayout
+    <LinearLayout
+        android:id="@+id/layoutFeatures"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:stretchColumns="*"
-        android:layout_margin="15dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="15dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@drawable/bg_text"
         >
-        <TableRow>
-            <TextView
-                android:text="Rang Limit of Appropval"
-                android:textColor="@color/black"
-                android:textSize="10sp"
-                android:fontFamily="@font/poppins"
-                android:gravity="start"/>
-            <TextView
-                android:text="Minimum IDR"
-                android:textColor="#171C8F"
-                android:textSize="10sp"
-                android:fontFamily="@font/poppins"
-                android:gravity="center"/>
-            <TextView
-                android:text="0"
-                android:textColor="#171C8F"
-                android:textSize="10sp"
-                android:fontFamily="@font/poppins"
-                android:gravity="end"/>
-        </TableRow>
-        <TableRow
+
+        <TextView
+            android:id="@+id/matrixName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:text="@string/transfer_online"
+            android:layout_marginStart="20dp"
+            android:layout_weight="1"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_marginEnd="15dp"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp">
-            <TextView
-                android:layout_column="1"
-                android:text="Maximum IDR"
-                android:textColor="#171C8F"
-                android:textSize="10sp"
-                android:fontFamily="@font/poppins"
-                android:layout_weight="1"
+            android:layout_marginBottom="5dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/darker_gray"
+            />
 
-                android:gravity="center"/>
-            <TextView
-                android:text="0"
-                android:textColor="#171C8F"
-                android:textSize="10sp"
-                android:fontFamily="@font/poppins"
-                android:layout_weight="1"
+        <TextView
+            android:id="@+id/textFeature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:text="@string/transfer_online"
+            android:layout_weight="1"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            />
+        <ImageView
+            android:id="@+id/arrowFeature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
-                android:gravity="end"/>
-        </TableRow>
-        <TableRow>
-            <View
-                android:layout_span="3"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@android:color/darker_gray"/>
-        </TableRow>
+            android:contentDescription="TODO"
+            android:layout_marginEnd="20dp"/>
+    </LinearLayout>
 
-        <TableRow
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp">
-            <TextView
-                android:text="Number of Appropval"
-                android:textColor="@color/black"
-                android:textSize="10sp"
-                android:fontFamily="@font/poppins"
-                android:layout_weight="1"
+    <LinearLayout
+        android:id="@+id/expandable_list_approval"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_text"
+        android:orientation="vertical"
+        android:visibility="visible"
+        android:layout_marginBottom="10dp"
+        >
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:stretchColumns="*"
+            android:layout_margin="15dp"
+            >
+            <TableRow>
+                <TextView
+                    android:text="Rang Limit of Appropval"
+                    android:textColor="@color/black"
+                    android:textSize="10sp"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="start"/>
+                <TextView
 
-                android:gravity="start"/>
-            <TextView
-                android:layout_column="2"
-                android:text="1"
-                android:textColor="#171C8F"
-                android:textSize="10sp"
-                android:fontFamily="@font/poppins"
-                android:layout_weight="1"
+                    android:text="Minimum IDR"
+                    android:textColor="#171C8F"
+                    android:textSize="10sp"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="center"/>
+                <TextView
+                    android:id="@+id/textRangMinimum"
+                    android:text="0"
+                    android:textColor="#171C8F"
+                    android:textSize="10sp"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="end"/>
+            </TableRow>
+            <TableRow
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp">
+                <TextView
+                    android:layout_column="1"
+                    android:text="Maximum IDR"
+                    android:textColor="#171C8F"
+                    android:textSize="10sp"
+                    android:fontFamily="@font/poppins"
+                    android:layout_weight="1"
 
-                android:gravity="end"/>
-        </TableRow>
+                    android:gravity="center"/>
+                <TextView
+                    android:id="@+id/textRangMaximum"
 
-        <TableRow>
-            <View
-                android:layout_span="3"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@android:color/darker_gray"/>
-        </TableRow>
-        <TableRow
-            android:paddingTop="10dp">
-            <TextView
-                android:text="Appropver"
-                android:textColor="@color/black"
-                android:textSize="10sp"
-                android:fontFamily="@font/poppins"
-                android:layout_weight="1"
+                    android:text="0"
+                    android:textColor="#171C8F"
+                    android:textSize="10sp"
+                    android:fontFamily="@font/poppins"
+                    android:layout_weight="1"
 
-                android:gravity="start"/>
-            <TextView
-                android:ellipsize="end"
-                android:maxLines="2"
-                android:text="Groupmg1, Groupmg2, Groupmg3, Groupmg4"
-                android:textAllCaps="true"
-                android:textColor="#171C8F"
-                android:textSize="10sp"
-                android:fontFamily="@font/poppins"
-                android:layout_weight="1"
+                    android:gravity="end"/>
+            </TableRow>
+            <TableRow>
+                <View
+                    android:layout_span="3"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray"/>
+            </TableRow>
 
-                android:gravity="end"/>
-        </TableRow>
-    </TableLayout>
+            <TableRow
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp">
+                <TextView
+                    android:text="Number of Appropval"
+                    android:textColor="@color/black"
+                    android:textSize="10sp"
+                    android:fontFamily="@font/poppins"
+                    android:layout_weight="1"
+
+                    android:gravity="start"/>
+                <TextView
+                    android:id="@+id/textNumAppropval"
+                    android:layout_column="2"
+                    android:text="1"
+                    android:textColor="#171C8F"
+                    android:textSize="10sp"
+                    android:fontFamily="@font/poppins"
+                    android:layout_weight="1"
+
+                    android:gravity="end"/>
+            </TableRow>
+
+            <TableRow>
+                <View
+                    android:layout_span="3"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray"/>
+            </TableRow>
+            <TableRow
+                android:paddingTop="10dp">
+                <TextView
+                    android:text="Appropver"
+                    android:textColor="@color/black"
+                    android:textSize="10sp"
+                    android:fontFamily="@font/poppins"
+                    android:layout_weight="1"
+
+                    android:gravity="start"/>
+                <TextView
+                    android:id="@+id/textApprover"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:text="Groupmg1, Groupmg2, Groupmg3, Groupmg4"
+                    android:textAllCaps="true"
+                    android:textColor="#171C8F"
+                    android:textSize="10sp"
+                    android:fontFamily="@font/poppins"
+                    android:layout_weight="1"
+
+                    android:gravity="end"/>
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+
 
 
 

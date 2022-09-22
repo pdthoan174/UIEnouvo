@@ -10,12 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UIEnouvo">
         <activity
-            android:name=".addApprovalMatrix"
+            android:name=".activity.addApprovalMatrix"
             android:exported="true">
 
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ED8B00"
-    tools:context=".MainActivity">
+    tools:context=".activity.MainActivity">
 
 
 
@@ -283,6 +283,46 @@
                     android:maxLines="1"
                     android:paddingHorizontal="20dp"
 
+                    android:textColor="#000000"
+                    android:textSize="15sp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="30dp"
+                    android:text="Error message"
+                    android:textColor="#D30707"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="30dp"
+                    android:text="Approver (Sequence 1)"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/text_select_approver"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="30dp"
+                    android:autoSizeMaxTextSize="20sp"
+                    android:background="@drawable/bg_text"
+                    android:fontFamily="@font/poppins"
+                    android:hint="Approver "
+                    android:focusable="false"
+                    android:importantForAutofill="no"
+                    android:inputType="text"
+                    android:maxLength="30"
+                    android:maxLines="1"
+                    android:paddingHorizontal="20dp"
+                    android:drawableEnd="@drawable/ic_arrow_down"
                     android:textColor="#000000"
                     android:textSize="15sp" />
                 <TextView
