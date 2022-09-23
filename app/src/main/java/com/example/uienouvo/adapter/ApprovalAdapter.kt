@@ -1,6 +1,8 @@
 package com.example.uienouvo.adapter
 
 import android.content.Context
+import android.content.Intent
+import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -11,10 +13,11 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.uienouvo.R
+import com.example.uienouvo.activity.addApprovalMatrix
 import com.example.uienouvo.model.ItemApprovalMatrix
 import kotlinx.android.synthetic.main.list_approval_matrix.view.*
 
-class ApprovalAdapter(private val mListItemApprovalMatrix:List<ItemApprovalMatrix>):
+class ApprovalAdapter(private val mListItemApprovalMatrix:MutableList<ItemApprovalMatrix>):
     RecyclerView.Adapter<ApprovalAdapter.ApprovalHolder>() {
 
     private lateinit var mContext: Context
@@ -39,6 +42,8 @@ class ApprovalAdapter(private val mListItemApprovalMatrix:List<ItemApprovalMatri
         val view:View = LayoutInflater.from(parent.context).inflate(R.layout.list_approval_matrix, parent, false)
         mContext = parent.context
         view.arrowFeature.setImageResource(R.drawable.ic_arrow_down)
+
+
         return ApprovalHolder(view)
     }
 
@@ -62,13 +67,25 @@ class ApprovalAdapter(private val mListItemApprovalMatrix:List<ItemApprovalMatri
             holder.arrowFeatures.setImageResource(R.drawable.ic_arrow_down)
         }
 
+        holder.layoutExpandable.setOnClickListener {
+//            mListItemApprovalMatrix.removeAt(holder.adapterPosition)
+
+//            mListItemApprovalMatrix.set(holder.adapterPosition,ItemApprovalMatrix(
+//                "hihi",
+//                "alo",
+//                4,
+//                5,
+//                1,
+//                "sadfasdf"
+//            ))
+            notifyItemChanged(position)
+            showActivityAddApproval(mListItemApprovalMatrix, holder.adapterPosition, position)
+        }
+
         holder.layoutFeature.setOnClickListener {
             val approval = mListItemApprovalMatrix[position]
             approval.expandable = !approval.expandable
-
             notifyItemChanged(position)
-
-//            holder.layoutExpandable.visibility = View.VISIBLE
             Toast.makeText(mContext, approval.expandable.toString(), Toast.LENGTH_SHORT).show()
         }
 
@@ -78,6 +95,26 @@ class ApprovalAdapter(private val mListItemApprovalMatrix:List<ItemApprovalMatri
 
     override fun getItemCount(): Int {
         return mListItemApprovalMatrix.size
+    }
+
+    private fun showActivityAddApproval(approval: MutableList<ItemApprovalMatrix>, adapterPosition: Int, position: Int) {
+        val intent = Intent(mContext, addApprovalMatrix::class.java)
+        val bundle = Bundle()
+
+        bundle.putString("matrixName", approval[position].approvalMatrixName)
+        bundle.putString("featureName", approval[position].feature)
+        bundle.putString("minimum", approval[position].rangMinimum.toString())
+        bundle.putString("maximum", approval[position].rangMaximum.toString())
+        bundle.putString("numOfApproval", approval[position].numberOfApproval.toString())
+        bundle.putString("inputApprover", approval[position].approver)
+//        bundle.putString("inputApprover", approval[position].approvalMatrixName)
+
+        bundle.putInt("adapterPosition", adapterPosition)
+        intent.putExtras(bundle)
+        mContext.startActivity(intent)
+
+        approval.removeAt(position)
+
     }
 
 }

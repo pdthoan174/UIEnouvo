@@ -1,5 +1,6 @@
 package com.example.uienouvo.activity
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.DialogInterface
@@ -18,6 +19,7 @@ import android.widget.EditText
 import android.widget.Toast
 import com.example.uienouvo.activity.MainActivity
 import com.example.uienouvo.R
+import com.example.uienouvo.model.ItemApprovalMatrix
 import kotlinx.android.synthetic.main.activity_add_approval_matrix.*
 import kotlinx.android.synthetic.main.bottom_sheet_approver.*
 import kotlinx.android.synthetic.main.bottom_sheet_feature.*
@@ -77,6 +79,12 @@ class addApprovalMatrix : AppCompatActivity() {
 
         btn_back.setOnClickListener {
             backToMainActivity(false)
+        }
+
+        val intent = intent
+        val bundle = intent.extras
+        if (bundle!= null) {
+            getDataToUpdate()
         }
 
     }
@@ -228,7 +236,6 @@ class addApprovalMatrix : AppCompatActivity() {
 
 
     private fun backToMainActivity(updateList: Boolean) {
-
         val intent = Intent(this, MainActivity::class.java)
         val bundle = Bundle()
         bundle.putBoolean("updateList", updateList)
@@ -243,7 +250,6 @@ class addApprovalMatrix : AppCompatActivity() {
         startActivity(intent)
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
         finishAffinity()
-
     }
 
     private fun showConfirmDialog() {
@@ -415,7 +421,6 @@ class addApprovalMatrix : AppCompatActivity() {
         bottomSheetDialog.window?.setGravity(Gravity.BOTTOM)
     }
 
-
     private fun updateFeature(feature:String){
         bottomSheetFeature.setText(feature)
     }
@@ -424,6 +429,23 @@ class addApprovalMatrix : AppCompatActivity() {
         bottomSheetApprover.setText("")
         for (item in approver){
             bottomSheetApprover.append(item+", ")
+        }
+    }
+
+
+    private fun getDataToUpdate(){
+        val intent = intent
+        val bundle = intent.extras
+        if (bundle!= null) {
+            textTitle.text = "Update Approval Matrix"
+            btn_add.text = "Update Approval"
+
+            inputMatrixName.setText(bundle.getString("matrixName",""))
+            text_select_feature.setText(bundle.getString("featureName",""))
+            inputMinimum.setText(bundle.getString("minimum",""))
+            inputMaximum.setText(bundle.getString("maximum",""))
+            inputNumOfAppropval.setText(bundle.getString("numOfApproval",""))
+            text_select_approver.setText(bundle.getString("inputApprover",""))
         }
     }
 

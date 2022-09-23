@@ -9,7 +9,7 @@ import com.example.uienouvo.model.ItemApprovalMatrix
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.ArrayList
 
-private var mListApprovalMatrix = ArrayList<ItemApprovalMatrix>()
+private var mListApprovalMatrix = mutableListOf<ItemApprovalMatrix>()
 
 
 class MainActivity() : AppCompatActivity() {
@@ -60,6 +60,8 @@ class MainActivity() : AppCompatActivity() {
                 numOfApproval.toInt(),
                 inputApprover
             ))
+
+//            mListApprovalMatrix.set()
         }
     }
 
@@ -71,7 +73,9 @@ class MainActivity() : AppCompatActivity() {
 
 
     private fun showActivityAddApproval() {
-        startActivity(Intent(this, addApprovalMatrix::class.java))
+        val intent = Intent(this, addApprovalMatrix::class.java)
+
+        startActivity(intent)
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
     }
 }
