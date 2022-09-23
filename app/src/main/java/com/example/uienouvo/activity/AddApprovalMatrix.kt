@@ -29,13 +29,19 @@ import kotlinx.android.synthetic.main.bottom_sheet_feature.checkBox4
 import kotlinx.android.synthetic.main.bottom_sheet_feature.view.*
 import kotlinx.android.synthetic.main.confirm_add_dialog.view.*
 import kotlinx.android.synthetic.main.list_approval_matrix.*
+import kotlinx.android.synthetic.main.sign_in_failed_dialog.view.*
 
 class addApprovalMatrix : AppCompatActivity() {
 
     private lateinit var bottomSheetFeature:EditText
     private lateinit var bottomSheetApprover:EditText
 
-
+    private var matrixName = ""
+    private var featureName = ""
+    private var minimum = ""
+    private var maximum = ""
+    private var numOfApproval = ""
+    private var inputApprover = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,62 +58,98 @@ class addApprovalMatrix : AppCompatActivity() {
         }
 
         btn_add.setOnClickListener {
-            validateApproval()
-            showConfirmDialog()
+
+            if (validateApproval()){
+                showConfirmDialog()
+            }else{
+                showFailedDialog()
+            }
+        }
+
+        btnReset.setOnClickListener {
+            inputMatrixName.setText("")
+            text_select_feature.setText("")
+            text_select_approver.setText("")
+            inputMinimum.setText("")
+            inputMaximum.setText("")
+            inputNumOfAppropval.setText("")
         }
 
         btn_back.setOnClickListener {
-            backToMainActivity()
+            backToMainActivity(false)
         }
 
     }
 
-    private fun validateApproval() {
-        val matrixName = inputMatrixName.text.toString()
-        val featureName = text_select_feature.text.toString()
-        val minimum = inputMinimum.text.toString()
-        val maximum = inputMaximum.text.toString()
-        val numOfApproval = inputNumOfAppropval.text.toString()
-        val inputApprover = text_select_approver.text.toString()
+    private fun validateApproval(): Boolean {
+
+        matrixName = inputMatrixName.text.toString()
+        featureName = text_select_feature.text.toString()
+        minimum = inputMinimum.text.toString()
+        maximum = inputMaximum.text.toString()
+        numOfApproval = inputNumOfAppropval.text.toString()
+        inputApprover = text_select_approver.text.toString()
+
+        var validateResult: Boolean
 
         if (matrixName.isEmpty()){
             errorMessageName.text = "Enter matrix name"
+            validateResult = false
         }else{
             errorMessageName.text = ""
+            validateResult = true
         }
         if (featureName.equals("Select a feature") || featureName.equals("")){
             errorMessageFeature.text = "Select a feature"
+            validateResult = false
         }else{
             errorMessageFeature.text = ""
+            validateResult = true
+
         }
         if (minimum.isEmpty()){
             errorMessageMin.text = "Enter minimum value"
+            validateResult = false
         }else if (minimum.toInt() >= maximum.toInt()){
             errorMessageMin.text = "Minimum value must be less than maximum value"
+            validateResult = false
         }else{
             errorMessageMin.text = ""
+            validateResult = true
+
         }
         if (maximum.isEmpty()){
             errorMessageMax.text = "Enter maximum value"
+            validateResult = false
         }else if (maximum.toInt() <= minimum.toInt()){
             errorMessageMax.text = "Maximum value must be greater than minimum value"
+            validateResult = false
         }else{
             errorMessageMax.text = ""
+            validateResult = true
+
         }
 
         if (numOfApproval.isEmpty()){
             errorMessageNumApproval.text = "Enter number of approval"
+            validateResult = false
         }else if (numOfApproval.toInt() <= 0){
-            errorMessageApprover.text = "Number of approval must be greater than 0"
+            errorMessageNumApproval.text = "Number of approval must be greater than 0"
+            validateResult = false
         }else{
-            errorMessageApprover.text = ""
+            errorMessageNumApproval.text = ""
+            validateResult = true
+
         }
         if (inputApprover == ""){
             errorMessageApprover.text = "Select approver"
+            validateResult = false
         }else{
             errorMessageApprover.text = ""
-        }
+            validateResult = true
 
+        }
+        return validateResult
 
         Log.i("hihi", matrixName+featureName+minimum+maximum+numOfApproval+inputApprover)
     }
@@ -181,12 +223,24 @@ class addApprovalMatrix : AppCompatActivity() {
 
     override fun onBackPressed() {
         super.onBackPressed()
-        backToMainActivity()
+        backToMainActivity(false)
     }
 
 
-    private fun backToMainActivity() {
-        startActivity(Intent(this, MainActivity::class.java))
+    private fun backToMainActivity(updateList: Boolean) {
+
+        val intent = Intent(this, MainActivity::class.java)
+        val bundle = Bundle()
+        bundle.putBoolean("updateList", updateList)
+        bundle.putString("matrixName", matrixName)
+        bundle.putString("featureName", featureName)
+        bundle.putString("minimum", minimum)
+        bundle.putString("maximum", maximum)
+        bundle.putString("numOfApproval", numOfApproval)
+        bundle.putString("inputApprover", inputApprover)
+        intent.putExtras(bundle)
+
+        startActivity(intent)
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
         finishAffinity()
 
@@ -205,9 +259,25 @@ class addApprovalMatrix : AppCompatActivity() {
             dialog.dismiss()
         }
         view.btn_confirm.setOnClickListener {
-            Toast.makeText(this@addApprovalMatrix,"Confirm", Toast.LENGTH_SHORT).show()
+            dialog.dismiss()
+
+            backToMainActivity(true)
+        }
+    }
+
+    private fun showFailedDialog() {
+        val view = View.inflate(this@addApprovalMatrix, R.layout.sign_in_failed_dialog, null)
+        val builder = AlertDialog.Builder(this@addApprovalMatrix)
+        builder.setView(view)
+        val dialog = builder.create()
+        dialog.show()
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+        view.backToEdit.setOnClickListener {
+            Toast.makeText(this@addApprovalMatrix,"Back", Toast.LENGTH_SHORT).show()
             dialog.dismiss()
         }
+
     }
 
     private fun showBottomSheetFeature() {
@@ -259,7 +329,7 @@ class addApprovalMatrix : AppCompatActivity() {
         bottomSheetDialog.checkBox3.setOnClickListener {
             if (bottomSheetDialog.checkBox3.isChecked){
                 boolean = false
-                updateFeature(bottomSheetDialog.textTranferOnline.text.toString())
+                updateFeature(bottomSheetDialog.textFeatureC.text.toString())
                 bottomSheetDialog.checkBox1.isEnabled = boolean
                 bottomSheetDialog.checkBox2.isEnabled = boolean
                 bottomSheetDialog.checkBox4.isEnabled = boolean

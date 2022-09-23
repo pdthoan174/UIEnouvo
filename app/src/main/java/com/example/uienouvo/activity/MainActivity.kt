@@ -9,9 +9,18 @@ import com.example.uienouvo.model.ItemApprovalMatrix
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.ArrayList
 
+private var mListApprovalMatrix = ArrayList<ItemApprovalMatrix>()
+
+
 class MainActivity() : AppCompatActivity() {
 
-    var mListApprovalMatrix = ArrayList<ItemApprovalMatrix>()
+
+    private var matrixName = ""
+    private var featureName = ""
+    private var minimum = ""
+    private var maximum = ""
+    private var numOfApproval = ""
+    private var inputApprover = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,40 +30,37 @@ class MainActivity() : AppCompatActivity() {
             showActivityAddApproval()
         }
 
+        val intent = intent
+        val bundle = intent.extras
+        if (bundle?.getBoolean("updateList", false) == true) {
+            initData()
+        }
+
         setRecyclerView()
-        initData()
+
     }
 
+
     private fun initData() {
-        mListApprovalMatrix.add(ItemApprovalMatrix(
-            1,
-            "Default hihi ",
-            "Default",
-            0,
-            50000,
-            1,
-            "GROUPMG1"
-        ))
+        val intent = intent
+        val bundle = intent.extras
+        if (bundle!= null) {
+            matrixName = bundle.getString("matrixName","")
+            featureName = bundle.getString("featureName","")
+            minimum = bundle.getString("minimum","")
+            maximum = bundle.getString("maximum","")
+            numOfApproval = bundle.getString("numOfApproval","")
+            inputApprover = bundle.getString("inputApprover","")
 
-        mListApprovalMatrix.add(ItemApprovalMatrix(
-            1,
-            "Default",
-            "Default",
-            0,
-            50000,
-            1,
-            "GROUPMG1"
-        ))
-
-        mListApprovalMatrix.add(ItemApprovalMatrix(
-            1,
-            "Default",
-            "Default",
-            0,
-            50000,
-            1,
-            "GROUPMG1"
-        ))
+            mListApprovalMatrix.add(ItemApprovalMatrix(
+                matrixName,
+                featureName,
+                minimum.toInt(),
+                maximum.toInt(),
+                numOfApproval.toInt(),
+                inputApprover
+            ))
+        }
     }
 
     private fun setRecyclerView() {
