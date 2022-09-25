@@ -283,7 +283,6 @@ class addApprovalMatrix : AppCompatActivity() {
             Toast.makeText(this@addApprovalMatrix,"Back", Toast.LENGTH_SHORT).show()
             dialog.dismiss()
         }
-
     }
 
     private fun showBottomSheetFeature() {

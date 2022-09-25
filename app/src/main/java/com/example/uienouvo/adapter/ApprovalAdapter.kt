@@ -1,5 +1,6 @@
 package com.example.uienouvo.adapter
 
+import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -15,7 +16,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.uienouvo.R
 import com.example.uienouvo.activity.addApprovalMatrix
 import com.example.uienouvo.model.ItemApprovalMatrix
+import kotlinx.android.synthetic.main.confirm_delete_dialog.view.*
 import kotlinx.android.synthetic.main.list_approval_matrix.view.*
+import kotlinx.android.synthetic.main.sign_in_failed_dialog.view.*
 
 class ApprovalAdapter(private val mListItemApprovalMatrix:MutableList<ItemApprovalMatrix>):
     RecyclerView.Adapter<ApprovalAdapter.ApprovalHolder>() {
@@ -67,8 +70,12 @@ class ApprovalAdapter(private val mListItemApprovalMatrix:MutableList<ItemApprov
             holder.arrowFeatures.setImageResource(R.drawable.ic_arrow_down)
         }
 
+        holder.layoutExpandable.setOnLongClickListener {
+            showDeleteDialog(holder.adapterPosition, approval.approvalMatrixName, position)
+            true
+        }
+
         holder.layoutExpandable.setOnClickListener {
-//            mListItemApprovalMatrix.removeAt(holder.adapterPosition)
 
 //            mListItemApprovalMatrix.set(holder.adapterPosition,ItemApprovalMatrix(
 //                "hihi",
@@ -81,6 +88,8 @@ class ApprovalAdapter(private val mListItemApprovalMatrix:MutableList<ItemApprov
             notifyItemChanged(position)
             showActivityAddApproval(mListItemApprovalMatrix, holder.adapterPosition, position)
         }
+
+
 
         holder.layoutFeature.setOnClickListener {
             val approval = mListItemApprovalMatrix[position]
@@ -114,7 +123,28 @@ class ApprovalAdapter(private val mListItemApprovalMatrix:MutableList<ItemApprov
         mContext.startActivity(intent)
 
         approval.removeAt(position)
+    }
 
+    private fun showDeleteDialog(adapterPosition: Int, matrixName: String, position: Int) {
+        val view = View.inflate(mContext, R.layout.confirm_delete_dialog, null)
+        val builder = AlertDialog.Builder(mContext)
+        builder.setView(view)
+        val dialog = builder.create()
+        dialog.show()
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+        view.btn_confirm.setOnClickListener {
+            mListItemApprovalMatrix.removeAt(adapterPosition)
+            Toast.makeText(mContext, "Delete "+matrixName, Toast.LENGTH_SHORT).show()
+            dialog.dismiss()
+            notifyItemChanged(position)
+
+        }
+
+        view.btn_cancel.setOnClickListener {
+            Toast.makeText(mContext,"Back", Toast.LENGTH_SHORT).show()
+            dialog.dismiss()
+        }
     }
 
 }

@@ -26,6 +26,7 @@ class MainActivity() : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
         btn_add_new_matrix.setOnClickListener {
             showActivityAddApproval()
         }
